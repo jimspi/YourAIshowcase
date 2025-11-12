@@ -8,7 +8,7 @@
   <script src="https://cdn.tailwindcss.com"></script>
   <link rel="preconnect" href="https://fonts.googleapis.com">
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700;800;900&display=swap" rel="stylesheet">
+  <link href="https://fonts.googleapis.com/css2?family=Space+Grotesk:wght@400;500;600;700&family=Manrope:wght@300;400;500;600;700;800&display=swap" rel="stylesheet">
   <style>
     * {
       box-sizing: border-box;
@@ -17,10 +17,14 @@
     }
 
     html, body {
-      font-family: Inter, system-ui, sans-serif;
-      background: #000000;
-      color: #fff;
+      font-family: 'Manrope', system-ui, sans-serif;
+      background: #ffffff;
+      color: #1a1a1a;
       overflow-x: hidden;
+    }
+
+    h1, h2, h3, h4, h5, h6 {
+      font-family: 'Space Grotesk', sans-serif;
     }
 
     .container {
@@ -36,7 +40,7 @@
       height: 500px;
       overflow: hidden;
       border-radius: 1rem;
-      border: 1px solid rgba(255, 255, 255, 0.1);
+      border: 1px solid rgba(0, 0, 0, 0.08);
     }
 
     .carousel-track {
@@ -51,8 +55,8 @@
       margin-right: 2rem;
       border-radius: 1rem;
       overflow: hidden;
-      background: rgba(255, 255, 255, 0.02);
-      border: 1px solid rgba(255, 255, 255, 0.1);
+      background: #f8f8f8;
+      border: 1px solid rgba(0, 0, 0, 0.08);
     }
 
     .carousel-item img {
@@ -72,7 +76,7 @@
 
     /* Gradient Text */
     .gradient-text {
-      background: linear-gradient(135deg, #ffffff 0%, #a78bfa 50%, #8b5cf6 100%);
+      background: linear-gradient(135deg, #1a1a1a 0%, #6366f1 50%, #8b5cf6 100%);
       -webkit-background-clip: text;
       -webkit-text-fill-color: transparent;
       background-clip: text;
@@ -80,17 +84,18 @@
 
     /* Cards */
     .card {
-      background: rgba(255, 255, 255, 0.02);
-      border: 1px solid rgba(255, 255, 255, 0.1);
+      background: #fafafa;
+      border: 1px solid rgba(0, 0, 0, 0.08);
       border-radius: 1rem;
       transition: all 0.3s ease;
       height: 100%;
     }
 
     .card:hover {
-      background: rgba(255, 255, 255, 0.04);
+      background: #f5f5f5;
       border-color: rgba(139, 92, 246, 0.4);
       transform: translateY(-4px);
+      box-shadow: 0 10px 30px rgba(0, 0, 0, 0.08);
     }
 
     /* Buttons */
@@ -112,27 +117,27 @@
     }
 
     .btn-secondary {
-      background: rgba(255, 255, 255, 0.05);
-      border: 1px solid rgba(255, 255, 255, 0.2);
+      background: #ffffff;
+      border: 1px solid rgba(0, 0, 0, 0.15);
       padding: 0.875rem 2rem;
       border-radius: 0.5rem;
       font-weight: 600;
       transition: all 0.3s;
       display: inline-block;
       text-decoration: none;
-      color: white;
+      color: #1a1a1a;
     }
 
     .btn-secondary:hover {
-      background: rgba(255, 255, 255, 0.1);
-      border-color: rgba(255, 255, 255, 0.3);
+      background: #f5f5f5;
+      border-color: rgba(0, 0, 0, 0.25);
     }
 
     /* Navigation */
     nav {
-      background: rgba(0, 0, 0, 0.95);
+      background: rgba(255, 255, 255, 0.95);
       backdrop-filter: blur(20px);
-      border-bottom: 1px solid rgba(255, 255, 255, 0.05);
+      border-bottom: 1px solid rgba(0, 0, 0, 0.08);
       position: sticky;
       top: 0;
       z-index: 100;
@@ -182,11 +187,11 @@
 
     .tech-badge {
       padding: 0.25rem 0.75rem;
-      background: rgba(255, 255, 255, 0.05);
-      border: 1px solid rgba(255, 255, 255, 0.1);
+      background: #ffffff;
+      border: 1px solid rgba(0, 0, 0, 0.1);
       border-radius: 0.25rem;
       font-size: 0.75rem;
-      color: rgba(255, 255, 255, 0.7);
+      color: #666;
       font-weight: 500;
     }
 
@@ -208,8 +213,8 @@
           <span style="font-size: 1rem; font-weight: 700;">Jim Spiewak</span>
         </div>
         <div style="display: flex; gap: 0.5rem; align-items: center;">
-          <a href="#projects" style="color: rgba(255,255,255,0.7); text-decoration: none; font-size: 0.875rem; font-weight: 500; padding: 0.5rem 1rem; transition: color 0.3s;" onmouseover="this.style.color='#fff'" onmouseout="this.style.color='rgba(255,255,255,0.7)'">Projects</a>
-          <a href="https://jimspiewak.substack.com/" target="_blank" style="color: rgba(255,255,255,0.7); text-decoration: none; font-size: 0.875rem; font-weight: 500; padding: 0.5rem 1rem; transition: color 0.3s;" onmouseover="this.style.color='#fff'" onmouseout="this.style.color='rgba(255,255,255,0.7)'">Substack</a>
+          <a href="#projects" style="color: rgba(0,0,0,0.6); text-decoration: none; font-size: 0.875rem; font-weight: 500; padding: 0.5rem 1rem; transition: color 0.3s;" onmouseover="this.style.color='#1a1a1a'" onmouseout="this.style.color='rgba(0,0,0,0.6)'">Projects</a>
+          <a href="https://jimspiewak.substack.com/" target="_blank" style="color: rgba(0,0,0,0.6); text-decoration: none; font-size: 0.875rem; font-weight: 500; padding: 0.5rem 1rem; transition: color 0.3s;" onmouseover="this.style.color='#1a1a1a'" onmouseout="this.style.color='rgba(0,0,0,0.6)'">Substack</a>
           <a href="#contact" class="btn-primary" style="padding: 0.5rem 1.25rem; font-size: 0.875rem;">Contact</a>
         </div>
       </div>
@@ -223,7 +228,7 @@
         <h1 class="gradient-text" style="font-size: clamp(2.5rem, 6vw, 4.5rem); font-weight: 900; line-height: 1.1; margin-bottom: 1rem; letter-spacing: -0.03em;">
           AI Tools That Ship
         </h1>
-        <p style="font-size: 1.25rem; color: rgba(255, 255, 255, 0.6); margin-bottom: 2rem; line-height: 1.6;">
+        <p style="font-size: 1.25rem; color: rgba(0, 0, 0, 0.6); margin-bottom: 2rem; line-height: 1.6;">
           Journalist turned AI product builder. Creating Vault, NewsFlow, TeamMessage, and tools that solve real problems.
         </p>
         <div style="display: flex; gap: 1rem; justify-content: center; flex-wrap: wrap;">
@@ -301,7 +306,7 @@
     <div class="container">
       <div style="margin-bottom: 3rem;">
         <h2 class="section-title">Featured Projects</h2>
-        <p style="font-size: 1rem; color: rgba(255, 255, 255, 0.5);">
+        <p style="font-size: 1rem; color: rgba(0, 0, 0, 0.5);">
           Real solutions for real problems.
         </p>
       </div>
@@ -312,7 +317,7 @@
           <div class="card" style="padding: 2.5rem;">
             <span class="tag">Flagship</span>
             <h3 style="font-size: 2rem; font-weight: 800; margin: 1rem 0 0.75rem; letter-spacing: -0.02em;">Vault</h3>
-            <p style="font-size: 1rem; color: rgba(255, 255, 255, 0.6); margin-bottom: 1.5rem; line-height: 1.6;">
+            <p style="font-size: 1rem; color: rgba(0, 0, 0, 0.6); margin-bottom: 1.5rem; line-height: 1.6;">
               Secure document management and AI-powered organization. Built for teams that need reliability and speed.
             </p>
             <div style="display: flex; flex-wrap: wrap; gap: 0.5rem; margin-bottom: 1.5rem;">
@@ -330,7 +335,7 @@
           <div class="card" style="padding: 2rem;">
             <span class="tag">News Tech</span>
             <h3 style="font-size: 1.5rem; font-weight: 800; margin: 1rem 0 0.75rem;">NewsFlow</h3>
-            <p style="color: rgba(255, 255, 255, 0.6); margin-bottom: 1.5rem; line-height: 1.6; font-size: 0.9375rem;">
+            <p style="color: rgba(0, 0, 0, 0.6); margin-bottom: 1.5rem; line-height: 1.6; font-size: 0.9375rem;">
               Real-time news aggregation with AI-powered trend detection.
             </p>
             <div style="display: flex; flex-wrap: wrap; gap: 0.5rem; margin-bottom: 1.5rem;">
@@ -346,7 +351,7 @@
           <div class="card" style="padding: 2rem;">
             <span class="tag">Collaboration</span>
             <h3 style="font-size: 1.5rem; font-weight: 800; margin: 1rem 0 0.75rem;">TeamMessage</h3>
-            <p style="color: rgba(255, 255, 255, 0.6); margin-bottom: 1.5rem; line-height: 1.6; font-size: 0.9375rem;">
+            <p style="color: rgba(0, 0, 0, 0.6); margin-bottom: 1.5rem; line-height: 1.6; font-size: 0.9375rem;">
               Smart team communication with AI summaries and priority filtering.
             </p>
             <div style="display: flex; flex-wrap: wrap; gap: 0.5rem; margin-bottom: 1.5rem;">
@@ -362,7 +367,7 @@
           <div class="card" style="padding: 2rem;">
             <span class="tag">Nonprofit</span>
             <h3 style="font-size: 1.5rem; font-weight: 800; margin: 1rem 0 0.75rem;">Business Ally Program</h3>
-            <p style="color: rgba(255, 255, 255, 0.6); margin-bottom: 1.5rem; line-height: 1.6; font-size: 0.9375rem;">
+            <p style="color: rgba(0, 0, 0, 0.6); margin-bottom: 1.5rem; line-height: 1.6; font-size: 0.9375rem;">
               Complete lead-capture and consultation stack for nonprofits.
             </p>
             <div style="display: flex; flex-wrap: wrap; gap: 0.5rem;">
@@ -379,7 +384,7 @@
               <div>
                 <span class="tag">Mental Tools</span>
                 <h3 style="font-size: 2rem; font-weight: 800; margin: 1rem 0 0.75rem;">ThinkClear</h3>
-                <p style="color: rgba(255, 255, 255, 0.6); margin-bottom: 1.5rem; line-height: 1.6; font-size: 1rem;">
+                <p style="color: rgba(0, 0, 0, 0.6); margin-bottom: 1.5rem; line-height: 1.6; font-size: 1rem;">
                   Cognitive enhancement for better decisions. Structured thinking frameworks, bias detection, and clarity prompts.
                 </p>
                 <div style="display: flex; flex-wrap: wrap; gap: 0.5rem; margin-bottom: 1.5rem;">
@@ -391,8 +396,8 @@
               </div>
               <div>
                 <div style="padding: 1.5rem; background: rgba(139, 92, 246, 0.05); border: 1px solid rgba(139, 92, 246, 0.2); border-radius: 0.75rem;">
-                  <p style="font-size: 0.875rem; color: rgba(255, 255, 255, 0.5); margin-bottom: 0.75rem;">Features:</p>
-                  <ul style="list-style: none; color: rgba(255, 255, 255, 0.8); font-size: 0.875rem; line-height: 1.8;">
+                  <p style="font-size: 0.875rem; color: rgba(0, 0, 0, 0.5); margin-bottom: 0.75rem;">Features:</p>
+                  <ul style="list-style: none; color: rgba(0, 0, 0, 0.8); font-size: 0.875rem; line-height: 1.8;">
                     <li>Complex decisions</li>
                     <li>Cognitive biases</li>
                     <li>Strategic planning</li>
@@ -408,11 +413,11 @@
   </section>
 
   <!-- Philosophy -->
-  <section style="padding: 3rem 0; background: rgba(139, 92, 246, 0.02); border-top: 1px solid rgba(255, 255, 255, 0.05); border-bottom: 1px solid rgba(255, 255, 255, 0.05);">
+  <section style="padding: 3rem 0; background: rgba(139, 92, 246, 0.02); border-top: 1px solid rgba(0, 0, 0, 0.05); border-bottom: 1px solid rgba(0, 0, 0, 0.05);">
     <div class="container">
       <div style="max-width: 800px; margin: 0 auto; text-align: center;">
         <h2 style="font-size: 2rem; font-weight: 900; margin-bottom: 1rem; letter-spacing: -0.02em;">Build Philosophy</h2>
-        <p style="font-size: 1.5rem; color: rgba(255, 255, 255, 0.8); line-height: 1.6; font-weight: 300; font-style: italic;">
+        <p style="font-size: 1.5rem; color: rgba(0, 0, 0, 0.8); line-height: 1.6; font-weight: 300; font-style: italic;">
           "I steer AI to behave exactly how I need."
         </p>
       </div>
@@ -424,7 +429,7 @@
     <div class="container">
       <div style="max-width: 700px; margin: 0 auto; text-align: center;">
         <h2 class="section-title">Let's Build</h2>
-        <p style="font-size: 1.125rem; color: rgba(255, 255, 255, 0.6); margin-bottom: 2rem; line-height: 1.6;">
+        <p style="font-size: 1.125rem; color: rgba(0, 0, 0, 0.6); margin-bottom: 2rem; line-height: 1.6;">
           Need custom AI tools, landing pages, or automation? Let's collaborate.
         </p>
         <div style="display: flex; gap: 1rem; justify-content: center; flex-wrap: wrap;">
@@ -436,9 +441,9 @@
   </section>
 
   <!-- Footer -->
-  <footer style="padding: 2rem 0; border-top: 1px solid rgba(255, 255, 255, 0.05);">
+  <footer style="padding: 2rem 0; border-top: 1px solid rgba(0, 0, 0, 0.08);">
     <div class="container" style="text-align: center;">
-      <p style="color: rgba(255, 255, 255, 0.4); font-size: 0.875rem;">
+      <p style="color: rgba(0, 0, 0, 0.4); font-size: 0.875rem;">
         2025 Jim Spiewak — AI Product Builder
       </p>
     </div>

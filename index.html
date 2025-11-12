@@ -3,286 +3,407 @@
 <head>
   <meta charset="UTF-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-  <title>Jim AI Guy — AI Product Builder</title>
-  <meta name="description" content="Jim Spiewak — journalist & AI product builder. Building the future of AI tools." />
+  <title>Jim Spiewak — AI Product Builder</title>
+  <meta name="description" content="Jim Spiewak — Building the future of AI tools. Vault, NewsFlow, TeamMessage, and more." />
   <script src="https://cdn.tailwindcss.com"></script>
   <link rel="preconnect" href="https://fonts.googleapis.com">
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700;800;900&display=swap" rel="stylesheet">
+  <link href="https://fonts.googleapis.com/css2?family=Space+Grotesk:wght@400;500;600;700&family=Manrope:wght@300;400;500;600;700;800&display=swap" rel="stylesheet">
   <style>
-    * { box-sizing: border-box; }
-    html, body { font-family: Inter, system-ui, sans-serif; background: #0a0a0a; color: #fff; }
-    
-    .container { max-width: 1400px; margin: 0 auto; padding: 0 2rem; }
-    
-    .hero-gradient {
-      background: radial-gradient(ellipse 80% 50% at 50% -20%, rgba(120, 119, 198, 0.3), transparent),
-                  radial-gradient(ellipse 60% 50% at 50% 120%, rgba(67, 56, 202, 0.15), transparent);
+    * {
+      box-sizing: border-box;
+      margin: 0;
+      padding: 0;
     }
-    
+
+    html, body {
+      font-family: 'Manrope', system-ui, sans-serif;
+      background: #ffffff;
+      color: #1a1a1a;
+      overflow-x: hidden;
+    }
+
+    h1, h2, h3, h4, h5, h6 {
+      font-family: 'Space Grotesk', sans-serif;
+    }
+
+    .container {
+      max-width: 1400px;
+      margin: 0 auto;
+      padding: 0 2rem;
+    }
+
+    /* Carousel Styles */
+    .carousel-container {
+      position: relative;
+      width: 100%;
+      height: 500px;
+      overflow: hidden;
+      border-radius: 1rem;
+      border: 1px solid rgba(0, 0, 0, 0.08);
+    }
+
+    .carousel-track {
+      display: flex;
+      height: 100%;
+      animation: scroll 30s linear infinite;
+    }
+
+    .carousel-item {
+      min-width: 800px;
+      height: 100%;
+      margin-right: 2rem;
+      border-radius: 1rem;
+      overflow: hidden;
+      background: #f8f8f8;
+      border: 1px solid rgba(0, 0, 0, 0.08);
+    }
+
+    .carousel-item img {
+      width: 100%;
+      height: 100%;
+      object-fit: cover;
+      object-position: top;
+    }
+
+    @keyframes scroll {
+      0% { transform: translateX(0); }
+      100% { transform: translateX(calc(-820px * 5)); }
+    }
+
+    .carousel-track:hover {
+      animation-play-state: paused;
+    }
+
+    /* Gradient Text */
+    .gradient-text {
+      color: #1a1a1a;
+    }
+
+    /* Cards */
     .card {
-      background: rgba(255, 255, 255, 0.03);
-      border: 1px solid rgba(255, 255, 255, 0.08);
-      border-radius: 1.5rem;
-      transition: all 0.3s cubic-bezier(0.4, 0, 0.2, 1);
+      background: #fafafa;
+      border: 1px solid rgba(0, 0, 0, 0.08);
+      border-radius: 1rem;
+      transition: all 0.3s ease;
+      height: 100%;
     }
-    
+
     .card:hover {
-      background: rgba(255, 255, 255, 0.05);
-      border-color: rgba(255, 255, 255, 0.15);
+      background: #f5f5f5;
+      border-color: rgba(0, 0, 0, 0.2);
       transform: translateY(-4px);
+      box-shadow: 0 10px 30px rgba(0, 0, 0, 0.08);
     }
-    
+
+    /* Buttons */
     .btn-primary {
-      background: linear-gradient(135deg, #6366f1 0%, #8b5cf6 100%);
+      background: #1a1a1a;
       padding: 0.875rem 2rem;
-      border-radius: 0.75rem;
+      border-radius: 0.5rem;
       font-weight: 600;
       transition: all 0.3s;
       display: inline-block;
       text-decoration: none;
       color: white;
+      border: none;
     }
-    
+
     .btn-primary:hover {
       transform: translateY(-2px);
-      box-shadow: 0 20px 40px rgba(99, 102, 241, 0.3);
+      box-shadow: 0 10px 30px rgba(0, 0, 0, 0.2);
+      background: #333;
     }
-    
+
     .btn-secondary {
-      background: rgba(255, 255, 255, 0.06);
-      border: 1px solid rgba(255, 255, 255, 0.1);
+      background: #ffffff;
+      border: 1px solid rgba(0, 0, 0, 0.15);
       padding: 0.875rem 2rem;
-      border-radius: 0.75rem;
+      border-radius: 0.5rem;
       font-weight: 600;
       transition: all 0.3s;
       display: inline-block;
       text-decoration: none;
-      color: white;
+      color: #1a1a1a;
     }
-    
+
     .btn-secondary:hover {
-      background: rgba(255, 255, 255, 0.1);
-      border-color: rgba(255, 255, 255, 0.2);
+      background: #f5f5f5;
+      border-color: rgba(0, 0, 0, 0.25);
     }
-    
-    .tag {
-      display: inline-block;
-      padding: 0.375rem 0.875rem;
-      background: rgba(99, 102, 241, 0.1);
-      border: 1px solid rgba(99, 102, 241, 0.2);
-      border-radius: 0.5rem;
-      font-size: 0.75rem;
-      font-weight: 600;
-      color: #a5b4fc;
-      text-transform: uppercase;
-      letter-spacing: 0.05em;
-    }
-    
-    .feature-grid {
-      display: grid;
-      grid-template-columns: repeat(auto-fit, minmax(320px, 1fr));
-      gap: 1.5rem;
-    }
-    
-    .bento-grid {
-      display: grid;
-      grid-template-columns: repeat(12, 1fr);
-      gap: 1.5rem;
-    }
-    
-    .span-6 { grid-column: span 6; }
-    .span-4 { grid-column: span 4; }
-    .span-8 { grid-column: span 8; }
-    .span-12 { grid-column: span 12; }
-    
-    @media (max-width: 768px) {
-      .span-6, .span-4, .span-8 { grid-column: span 12; }
-    }
-    
-    .gpt-card {
-      background: rgba(255, 255, 255, 0.02);
-      border: 1px solid rgba(255, 255, 255, 0.06);
-      border-radius: 1rem;
-      padding: 1.5rem;
-      transition: all 0.3s;
-    }
-    
-    .gpt-card:hover {
-      background: rgba(255, 255, 255, 0.04);
-      border-color: rgba(255, 255, 255, 0.12);
-    }
-    
-    .filter-chip {
-      padding: 0.5rem 1rem;
-      border-radius: 0.5rem;
-      border: 1px solid rgba(255, 255, 255, 0.1);
-      background: rgba(255, 255, 255, 0.03);
-      color: rgba(255, 255, 255, 0.7);
-      font-size: 0.875rem;
-      font-weight: 500;
-      cursor: pointer;
-      transition: all 0.2s;
-    }
-    
-    .filter-chip:hover {
-      background: rgba(255, 255, 255, 0.06);
-      color: white;
-    }
-    
-    .filter-chip.active {
-      background: rgba(99, 102, 241, 0.15);
-      border-color: rgba(99, 102, 241, 0.3);
-      color: #a5b4fc;
-    }
-    
-    .search-input {
-      background: rgba(255, 255, 255, 0.04);
-      border: 1px solid rgba(255, 255, 255, 0.1);
-      border-radius: 0.75rem;
-      padding: 0.75rem 1rem 0.75rem 2.75rem;
-      color: white;
-      width: 100%;
-      max-width: 300px;
-    }
-    
-    .search-input::placeholder {
-      color: rgba(255, 255, 255, 0.4);
-    }
-    
-    .search-input:focus {
-      outline: none;
-      border-color: rgba(99, 102, 241, 0.4);
-      background: rgba(255, 255, 255, 0.06);
-    }
-    
+
+    /* Navigation */
     nav {
-      background: rgba(10, 10, 10, 0.8);
+      background: rgba(255, 255, 255, 0.95);
       backdrop-filter: blur(20px);
-      border-bottom: 1px solid rgba(255, 255, 255, 0.06);
+      border-bottom: 1px solid rgba(0, 0, 0, 0.08);
       position: sticky;
       top: 0;
       z-index: 100;
     }
-    
-    .stat-number {
-      font-size: 3rem;
+
+    .logo {
+      width: 2.5rem;
+      height: 2.5rem;
+      background: linear-gradient(135deg, #8b5cf6, #6366f1);
+      border-radius: 0.5rem;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      font-weight: 800;
+      font-size: 1.25rem;
+    }
+
+    /* Grid */
+    .project-grid {
+      display: grid;
+      grid-template-columns: repeat(12, 1fr);
+      gap: 1.5rem;
+    }
+
+    .span-6 { grid-column: span 6; }
+    .span-4 { grid-column: span 4; }
+    .span-8 { grid-column: span 8; }
+    .span-12 { grid-column: span 12; }
+
+    @media (max-width: 768px) {
+      .span-6, .span-4, .span-8 { grid-column: span 12; }
+      .carousel-item { min-width: 100%; }
+    }
+
+    .tag {
+      display: inline-block;
+      padding: 0.375rem 0.875rem;
+      background: rgba(0, 0, 0, 0.05);
+      border: 1px solid rgba(0, 0, 0, 0.15);
+      border-radius: 0.375rem;
+      font-size: 0.75rem;
+      font-weight: 600;
+      color: #1a1a1a;
+      text-transform: uppercase;
+      letter-spacing: 0.05em;
+    }
+
+    .tech-badge {
+      padding: 0.25rem 0.75rem;
+      background: #ffffff;
+      border: 1px solid rgba(0, 0, 0, 0.1);
+      border-radius: 0.25rem;
+      font-size: 0.75rem;
+      color: #666;
+      font-weight: 500;
+    }
+
+    .section-title {
+      font-size: 2.5rem;
       font-weight: 900;
-      background: linear-gradient(135deg, #fff 0%, rgba(255, 255, 255, 0.6) 100%);
-      -webkit-background-clip: text;
-      -webkit-text-fill-color: transparent;
-      background-clip: text;
+      letter-spacing: -0.02em;
+      margin-bottom: 1rem;
+    }
+
+    /* Project Cards with Animations */
+    .project-card {
+      position: relative;
+      overflow: hidden;
+      background: #fafafa;
+      border: 1px solid rgba(0, 0, 0, 0.08);
+      border-radius: 1rem;
+      transition: all 0.4s ease;
+      height: 100%;
+      display: flex;
+      flex-direction: column;
+    }
+
+    .project-card:hover {
+      transform: translateY(-8px);
+      box-shadow: 0 20px 40px rgba(0, 0, 0, 0.1);
+      border-color: rgba(0, 0, 0, 0.2);
+    }
+
+    .project-preview {
+      position: relative;
+      width: 100%;
+      height: 250px;
+      overflow: hidden;
+      background: #fff;
+      border-bottom: 1px solid rgba(0, 0, 0, 0.08);
+    }
+
+    .project-preview img {
+      width: 100%;
+      height: 100%;
+      object-fit: cover;
+      object-position: top;
+      transition: transform 0.6s ease;
+    }
+
+    .project-card:hover .project-preview img {
+      transform: scale(1.05);
+    }
+
+    .project-content {
+      padding: 2rem;
+      display: flex;
+      flex-direction: column;
+      flex-grow: 1;
+    }
+
+    .project-info {
+      flex-grow: 1;
+    }
+
+    .project-cta {
+      display: inline-flex;
+      align-items: center;
+      gap: 0.5rem;
+      color: #1a1a1a;
+      font-weight: 600;
+      text-decoration: none;
+      font-size: 0.9375rem;
+      transition: gap 0.3s ease;
+      margin-top: 1.5rem;
+    }
+
+    .project-cta:hover {
+      gap: 0.75rem;
+    }
+
+    .project-cta::after {
+      content: '→';
+      transition: transform 0.3s ease;
+    }
+
+    .project-cta:hover::after {
+      transform: translateX(4px);
+    }
+
+    /* Animated background accents */
+    .project-card::before {
+      content: '';
+      position: absolute;
+      top: 0;
+      left: 0;
+      right: 0;
+      height: 3px;
+      background: linear-gradient(90deg, #1a1a1a, #666);
+      transform: scaleX(0);
+      transform-origin: left;
+      transition: transform 0.4s ease;
+    }
+
+    .project-card:hover::before {
+      transform: scaleX(1);
+    }
+
+    .uniform-grid {
+      display: grid;
+      grid-template-columns: repeat(2, 1fr);
+      gap: 2rem;
+    }
+
+    @media (max-width: 968px) {
+      .uniform-grid {
+        grid-template-columns: 1fr;
+      }
+
+      .project-preview {
+        height: 200px;
+      }
     }
   </style>
-  <script>
-    document.addEventListener('DOMContentLoaded', () => {
-      // GPT filtering
-      const gptSection = document.getElementById('gpts');
-      if (gptSection) {
-        const grid = gptSection.querySelector('.feature-grid');
-        const cards = Array.from(grid?.querySelectorAll('.gpt-card') || []);
-        const search = document.getElementById('gptSearch');
-        const chips = document.getElementById('gptChips');
-        const count = document.getElementById('gptCount');
-        
-        let activeTag = 'all';
-        
-        function getTags(card) {
-          return Array.from(card.querySelectorAll('.tag'))
-            .map(s => s.textContent.trim().toLowerCase());
-        }
-        
-        function apply() {
-          const q = (search?.value || '').trim().toLowerCase();
-          let visible = 0;
-          
-          cards.forEach(card => {
-            const title = (card.querySelector('h4')?.textContent || '').toLowerCase();
-            const desc = (card.querySelector('p')?.textContent || '').toLowerCase();
-            const tags = getTags(card);
-            
-            const matchText = !q || title.includes(q) || desc.includes(q);
-            const matchTag = activeTag === 'all' || tags.includes(activeTag.toLowerCase());
-            const show = matchText && matchTag;
-            
-            card.style.display = show ? 'block' : 'none';
-            if (show) visible++;
-          });
-          
-          if (count) count.textContent = `${visible} of ${cards.length} GPTs`;
-        }
-        
-        chips?.addEventListener('click', (e) => {
-          const btn = e.target.closest('.filter-chip');
-          if (!btn) return;
-          
-          activeTag = btn.dataset.chip || 'all';
-          chips.querySelectorAll('.filter-chip').forEach(b => b.classList.remove('active'));
-          btn.classList.add('active');
-          apply();
-        });
-        
-        search?.addEventListener('input', apply);
-        apply();
-      }
-    });
-  </script>
 </head>
 <body>
-  <!-- Nav -->
+  <!-- Navigation -->
   <nav>
-    <div class="container" style="padding: 1.25rem 2rem;">
+    <div class="container" style="padding: 1rem 2rem;">
       <div style="display: flex; justify-content: space-between; align-items: center;">
         <div style="display: flex; align-items: center; gap: 0.75rem;">
-          <div style="width: 2.5rem; height: 2.5rem; background: linear-gradient(135deg, #6366f1, #8b5cf6); border-radius: 0.625rem; display: flex; align-items: center; justify-content: center;">
-            <span style="font-size: 1.25rem; font-weight: 800;">J</span>
-          </div>
-          <span style="font-size: 1.125rem; font-weight: 700; letter-spacing: -0.02em;">Jim AI Guy</span>
+          <div class="logo">J</div>
+          <span style="font-size: 1rem; font-weight: 700;">Jim Spiewak</span>
         </div>
-        <div style="display: flex; gap: 0.75rem; align-items: center;">
-          <a href="#projects" style="color: rgba(255,255,255,0.7); text-decoration: none; font-size: 0.9375rem; font-weight: 500; padding: 0.5rem 1rem;">Projects</a>
-          <a href="#gpts" style="color: rgba(255,255,255,0.7); text-decoration: none; font-size: 0.9375rem; font-weight: 500; padding: 0.5rem 1rem;">GPTs</a>
-          <a href="#contact" class="btn-primary" style="padding: 0.625rem 1.5rem; font-size: 0.9375rem;">Get in Touch</a>
+        <div style="display: flex; gap: 0.5rem; align-items: center;">
+          <a href="#projects" style="color: rgba(0,0,0,0.6); text-decoration: none; font-size: 0.875rem; font-weight: 500; padding: 0.5rem 1rem; transition: color 0.3s;" onmouseover="this.style.color='#1a1a1a'" onmouseout="this.style.color='rgba(0,0,0,0.6)'">Projects</a>
+          <a href="https://jimspiewak.substack.com/" target="_blank" style="color: rgba(0,0,0,0.6); text-decoration: none; font-size: 0.875rem; font-weight: 500; padding: 0.5rem 1rem; transition: color 0.3s;" onmouseover="this.style.color='#1a1a1a'" onmouseout="this.style.color='rgba(0,0,0,0.6)'">Substack</a>
+          <a href="mailto:jpsthesecond@gmail.com" class="btn-primary" style="padding: 0.5rem 1.25rem; font-size: 0.875rem;">Contact</a>
         </div>
       </div>
     </div>
   </nav>
 
-  <!-- Hero -->
-  <section class="hero-gradient" style="padding: 8rem 0 6rem;">
+  <!-- Hero Section -->
+  <section style="padding: 3rem 0 2rem;">
     <div class="container">
-      <div style="max-width: 900px; margin: 0 auto; text-align: center;">
-        <div style="display: inline-flex; align-items: center; gap: 0.5rem; padding: 0.5rem 1rem; background: rgba(99, 102, 241, 0.1); border: 1px solid rgba(99, 102, 241, 0.2); border-radius: 2rem; margin-bottom: 2rem;">
-          <div style="width: 0.5rem; height: 0.5rem; background: #10b981; border-radius: 50%; animation: pulse 2s ease-in-out infinite;"></div>
-          <span style="font-size: 0.875rem; font-weight: 600; color: #a5b4fc;">Available for Projects</span>
-        </div>
-        
-        <h1 style="font-size: 4.5rem; font-weight: 900; line-height: 1.1; margin-bottom: 1.5rem; letter-spacing: -0.03em;">
-          Building AI Tools<br/>
+      <div style="max-width: 900px; margin: 0 auto; text-align: center; margin-bottom: 3rem;">
+        <h1 class="gradient-text" style="font-size: clamp(2.5rem, 6vw, 4.5rem); font-weight: 900; line-height: 1.1; margin-bottom: 1rem; letter-spacing: -0.03em;">
+          AI Tools That Ship
         </h1>
-        
-        <p style="font-size: 1.25rem; color: rgba(255, 255, 255, 0.7); margin-bottom: 3rem; line-height: 1.6;">
-          On-air journalist by day. AI product builder by obsession. I ship custom GPTs, landing pages, and automation workflows.
+        <p style="font-size: 1.25rem; color: rgba(0, 0, 0, 0.6); margin-bottom: 2rem; line-height: 1.6;">
+          Journalist and AI builder. Creating Vault, NewsFlow, TeamMessage, and tools that solve real problems.
         </p>
-        
         <div style="display: flex; gap: 1rem; justify-content: center; flex-wrap: wrap;">
-          <a href="#projects" class="btn-primary">View All Projects</a>
-          <a href="#contact" class="btn-secondary">Let's Collaborate</a>
+          <a href="#projects" class="btn-primary">View Projects</a>
+          <a href="https://jimspiewak.substack.com/" target="_blank" class="btn-secondary">Read on Substack</a>
         </div>
-        
-        <!-- Stats -->
-        <div style="display: grid; grid-template-columns: repeat(3, 1fr); gap: 3rem; margin-top: 5rem; padding-top: 3rem; border-top: 1px solid rgba(255, 255, 255, 0.1);">
-          <div>
-            <div class="stat-number">30+</div>
-            <div style="color: rgba(255, 255, 255, 0.5); font-weight: 500; margin-top: 0.5rem;">Products Built</div>
+      </div>
+
+      <!-- Carousel -->
+      <div class="carousel-container">
+        <div class="carousel-track">
+          <!-- Vault -->
+          <div class="carousel-item">
+            <a href="https://vault-mu-ten.vercel.app/" target="_blank">
+              <img src="images/vault.png" alt="Vault">
+            </a>
           </div>
-          <div>
-            <div class="stat-number">20+</div>
-            <div style="color: rgba(255, 255, 255, 0.5); font-weight: 500; margin-top: 0.5rem;">Custom GPTs</div>
+          <!-- NewsFlow -->
+          <div class="carousel-item">
+            <a href="https://news-flow-six.vercel.app/" target="_blank">
+              <img src="images/newsflow.png" alt="NewsFlow">
+            </a>
           </div>
-          <div>
-            <div class="stat-number">100%</div>
-            <div style="color: rgba(255, 255, 255, 0.5); font-weight: 500; margin-top: 0.5rem;">Shipped</div>
+          <!-- TeamMessage -->
+          <div class="carousel-item">
+            <a href="https://team-message.vercel.app/" target="_blank">
+              <img src="images/teammessage.png" alt="TeamMessage">
+            </a>
+          </div>
+          <!-- ThinkClear -->
+          <div class="carousel-item">
+            <a href="https://thinkclear.vercel.app/" target="_blank">
+              <img src="images/thinkclear.png" alt="ThinkClear">
+            </a>
+          </div>
+          <!-- Jim's Substack -->
+          <div class="carousel-item">
+            <a href="https://jimspiewak.substack.com/" target="_blank">
+              <img src="images/substack.png" alt="Jim's Substack">
+            </a>
+          </div>
+          <!-- Duplicate for seamless loop -->
+          <div class="carousel-item">
+            <a href="https://vault-mu-ten.vercel.app/" target="_blank">
+              <img src="images/vault.png" alt="Vault">
+            </a>
+          </div>
+          <div class="carousel-item">
+            <a href="https://news-flow-six.vercel.app/" target="_blank">
+              <img src="images/newsflow.png" alt="NewsFlow">
+            </a>
+          </div>
+          <div class="carousel-item">
+            <a href="https://team-message.vercel.app/" target="_blank">
+              <img src="images/teammessage.png" alt="TeamMessage">
+            </a>
+          </div>
+          <div class="carousel-item">
+            <a href="https://thinkclear.vercel.app/" target="_blank">
+              <img src="images/thinkclear.png" alt="ThinkClear">
+            </a>
+          </div>
+          <div class="carousel-item">
+            <a href="https://jimspiewak.substack.com/" target="_blank">
+              <img src="images/substack.png" alt="Jim's Substack">
+            </a>
           </div>
         </div>
       </div>
@@ -290,322 +411,140 @@
   </section>
 
   <!-- Featured Projects -->
-  <section id="projects" style="padding: 6rem 0;">
+  <section id="projects" style="padding: 4rem 0;">
     <div class="container">
       <div style="margin-bottom: 3rem;">
-        <span class="tag" style="margin-bottom: 1rem;">Featured Work</span>
-        <h2 style="font-size: 3rem; font-weight: 900; margin-bottom: 1rem; letter-spacing: -0.02em;">Products & Tools</h2>
-        <p style="font-size: 1.125rem; color: rgba(255, 255, 255, 0.6); max-width: 600px;">Real solutions for real problems.</p>
+        <h2 class="section-title">Featured Projects</h2>
+        <p style="font-size: 1rem; color: rgba(0, 0, 0, 0.5);">
+          Real solutions for real problems.
+        </p>
       </div>
 
-      <div class="bento-grid">
-        <!-- AI Portfolio Builder - Hero Card -->
-        <div class="span-8">
-          <div class="card" style="padding: 3rem; height: 100%; min-height: 400px; position: relative; overflow: hidden;">
-            <div style="position: absolute; top: 0; right: 0; width: 300px; height: 300px; background: radial-gradient(circle, rgba(99, 102, 241, 0.15) 0%, transparent 70%);"></div>
-            <div style="position: relative; z-index: 1;">
-              <span class="tag">⭐ Flagship Product</span>
-              <h3 style="font-size: 2.5rem; font-weight: 900; margin: 1.5rem 0 1rem; letter-spacing: -0.02em;">AI Portfolio Builder</h3>
-              <p style="font-size: 1.125rem; color: rgba(255, 255, 255, 0.7); margin-bottom: 2rem; line-height: 1.7; max-width: 600px;">
-                Generate stunning portfolio websites in minutes. AI-powered design, custom sections, and instant deployment. Built for creators who want results, not complexity.
-              </p>
-              <div style="display: flex; flex-wrap: wrap; gap: 0.75rem; margin-bottom: 2rem;">
-                <span style="padding: 0.5rem 1rem; background: rgba(255, 255, 255, 0.06); border-radius: 0.5rem; font-size: 0.875rem; color: rgba(255, 255, 255, 0.8);">Next.js</span>
-                <span style="padding: 0.5rem 1rem; background: rgba(255, 255, 255, 0.06); border-radius: 0.5rem; font-size: 0.875rem; color: rgba(255, 255, 255, 0.8);">AI Generation</span>
-                <span style="padding: 0.5rem 1rem; background: rgba(255, 255, 255, 0.06); border-radius: 0.5rem; font-size: 0.875rem; color: rgba(255, 255, 255, 0.8);">Vercel</span>
-              </div>
-              <a href="https://ai-portfolio-builder-theta.vercel.app/" target="_blank" class="btn-primary">Launch App →</a>
-            </div>
+      <div class="uniform-grid">
+        <!-- Vault -->
+        <a href="https://vault-mu-ten.vercel.app/" target="_blank" class="project-card">
+          <div class="project-preview">
+            <img src="images/vault.png" alt="Vault Demo">
           </div>
-        </div>
+          <div class="project-content">
+            <div class="project-info">
+              <span class="tag">Flagship</span>
+              <h3 style="font-size: 1.75rem; font-weight: 800; margin: 1rem 0 0.75rem; letter-spacing: -0.02em;">Vault</h3>
+              <p style="color: rgba(0, 0, 0, 0.6); margin-bottom: 1rem; line-height: 1.6;">
+                Auto-generated AI memory that provides personalized recommendations based on the content you choose to give it access to.
+              </p>
+              <div style="display: flex; flex-wrap: wrap; gap: 0.5rem;">
+                <span class="tech-badge">Next.js</span>
+                <span class="tech-badge">AI</span>
+                <span class="tech-badge">Encryption</span>
+              </div>
+            </div>
+            <span class="project-cta">Launch Project</span>
+          </div>
+        </a>
 
         <!-- NewsFlow -->
-        <div class="span-4">
-          <div class="card" style="padding: 2rem; height: 100%;">
-            <span class="tag">News Tech</span>
-            <h3 style="font-size: 1.5rem; font-weight: 800; margin: 1rem 0 0.75rem;">NewsFlow</h3>
-            <p style="color: rgba(255, 255, 255, 0.6); margin-bottom: 1.5rem; line-height: 1.6;">Real-time news aggregation with AI-powered trend detection and smart briefings for journalists.</p>
-            <div style="display: flex; flex-wrap: wrap; gap: 0.5rem; margin-bottom: 1.5rem;">
-              <span style="padding: 0.375rem 0.75rem; background: rgba(255, 255, 255, 0.04); border-radius: 0.375rem; font-size: 0.75rem; color: rgba(255, 255, 255, 0.7);">API</span>
-              <span style="padding: 0.375rem 0.75rem; background: rgba(255, 255, 255, 0.04); border-radius: 0.375rem; font-size: 0.75rem; color: rgba(255, 255, 255, 0.7);">Real-time</span>
-            </div>
-            <a href="https://news-flow-six.vercel.app/" target="_blank" style="color: #a5b4fc; font-weight: 600; text-decoration: none; font-size: 0.9375rem;">Visit Site →</a>
+        <a href="https://news-flow-six.vercel.app/" target="_blank" class="project-card">
+          <div class="project-preview">
+            <img src="images/newsflow.png" alt="NewsFlow Demo">
           </div>
-        </div>
-
-        <!-- BuzzRemind -->
-        <div class="span-4">
-          <div class="card" style="padding: 2rem; height: 100%;">
-            <span class="tag">Productivity</span>
-            <h3 style="font-size: 1.5rem; font-weight: 800; margin: 1rem 0 0.75rem;">BuzzRemind</h3>
-            <p style="color: rgba(255, 255, 255, 0.6); margin-bottom: 1.5rem; line-height: 1.6;">Wearable audio to actionable reminders. Never forget a great idea again.</p>
-            <div style="display: flex; flex-wrap: wrap; gap: 0.5rem; margin-bottom: 1.5rem;">
-              <span style="padding: 0.375rem 0.75rem; background: rgba(255, 255, 255, 0.04); border-radius: 0.375rem; font-size: 0.75rem; color: rgba(255, 255, 255, 0.7);">GPT-4</span>
-              <span style="padding: 0.375rem 0.75rem; background: rgba(255, 255, 255, 0.04); border-radius: 0.375rem; font-size: 0.75rem; color: rgba(255, 255, 255, 0.7);">Email</span>
+          <div class="project-content">
+            <div class="project-info">
+              <span class="tag">News Tech</span>
+              <h3 style="font-size: 1.75rem; font-weight: 800; margin: 1rem 0 0.75rem; letter-spacing: -0.02em;">NewsFlow</h3>
+              <p style="color: rgba(0, 0, 0, 0.6); margin-bottom: 1rem; line-height: 1.6;">
+                Real-time news aggregation with AI-powered trend detection and intelligent content curation.
+              </p>
+              <div style="display: flex; flex-wrap: wrap; gap: 0.5rem;">
+                <span class="tech-badge">API</span>
+                <span class="tech-badge">AI Analysis</span>
+                <span class="tech-badge">Real-time</span>
+              </div>
             </div>
+            <span class="project-cta">Launch Project</span>
           </div>
-        </div>
-
-        <!-- JournoBridge -->
-        <div class="span-4">
-          <div class="card" style="padding: 2rem; height: 100%;">
-            <span class="tag">Career Tools</span>
-            <h3 style="font-size: 1.5rem; font-weight: 800; margin: 1rem 0 0.75rem;">JournoBridge</h3>
-            <p style="color: rgba(255, 255, 255, 0.6); margin-bottom: 1.5rem; line-height: 1.6;">Help journalists pivot careers with AI-assisted skill translation and job matching.</p>
-            <div style="display: flex; flex-wrap: wrap; gap: 0.5rem; margin-bottom: 1.5rem;">
-              <span style="padding: 0.375rem 0.75rem; background: rgba(255, 255, 255, 0.04); border-radius: 0.375rem; font-size: 0.75rem; color: rgba(255, 255, 255, 0.7);">Next.js</span>
-              <span style="padding: 0.375rem 0.75rem; background: rgba(255, 255, 255, 0.04); border-radius: 0.375rem; font-size: 0.75rem; color: rgba(255, 255, 255, 0.7);">AI</span>
-            </div>
-          </div>
-        </div>
+        </a>
 
         <!-- TeamMessage -->
-        <div class="span-4">
-          <div class="card" style="padding: 2rem; height: 100%;">
-            <span class="tag">Collaboration</span>
-            <h3 style="font-size: 1.5rem; font-weight: 800; margin: 1rem 0 0.75rem;">TeamMessage</h3>
-            <p style="color: rgba(255, 255, 255, 0.6); margin-bottom: 1.5rem; line-height: 1.6;">Smart team communication with AI summaries and priority filtering.</p>
-            <div style="display: flex; flex-wrap: wrap; gap: 0.5rem; margin-bottom: 1.5rem;">
-              <span style="padding: 0.375rem 0.75rem; background: rgba(255, 255, 255, 0.04); border-radius: 0.375rem; font-size: 0.75rem; color: rgba(255, 255, 255, 0.7);">Real-time</span>
-            </div>
-            <a href="https://team-message.vercel.app/" target="_blank" style="color: #a5b4fc; font-weight: 600; text-decoration: none; font-size: 0.9375rem;">Visit Site →</a>
+        <a href="https://team-message.vercel.app/" target="_blank" class="project-card">
+          <div class="project-preview">
+            <img src="images/teammessage.png" alt="TeamMessage Demo">
           </div>
-        </div>
-
-        <!-- Business Ally -->
-        <div class="span-6">
-          <div class="card" style="padding: 2rem;">
-            <span class="tag">Nonprofit</span>
-            <h3 style="font-size: 1.75rem; font-weight: 800; margin: 1rem 0 0.75rem;">Business Ally Program</h3>
-            <p style="color: rgba(255, 255, 255, 0.6); margin-bottom: 1.5rem; line-height: 1.6;">Complete lead-capture and consultation stack for nonprofits. Intake forms, AI recommendations, and automated strategy PDFs.</p>
-            <div style="display: flex; flex-wrap: wrap; gap: 0.5rem;">
-              <span style="padding: 0.375rem 0.75rem; background: rgba(255, 255, 255, 0.04); border-radius: 0.375rem; font-size: 0.75rem; color: rgba(255, 255, 255, 0.7);">MailerLite</span>
-              <span style="padding: 0.375rem 0.75rem; background: rgba(255, 255, 255, 0.04); border-radius: 0.375rem; font-size: 0.75rem; color: rgba(255, 255, 255, 0.7);">Automation</span>
+          <div class="project-content">
+            <div class="project-info">
+              <span class="tag">Collaboration</span>
+              <h3 style="font-size: 1.75rem; font-weight: 800; margin: 1rem 0 0.75rem; letter-spacing: -0.02em;">TeamMessage</h3>
+              <p style="color: rgba(0, 0, 0, 0.6); margin-bottom: 1rem; line-height: 1.6;">
+                Smart team communication with AI summaries and priority filtering for streamlined collaboration.
+              </p>
+              <div style="display: flex; flex-wrap: wrap; gap: 0.5rem;">
+                <span class="tech-badge">Real-time</span>
+                <span class="tech-badge">AI Summaries</span>
+              </div>
             </div>
+            <span class="project-cta">Launch Project</span>
           </div>
-        </div>
+        </a>
 
         <!-- ThinkClear -->
-        <div class="span-6">
-          <div class="card" style="padding: 2rem;">
-            <span class="tag">Mental Tools</span>
-            <h3 style="font-size: 1.75rem; font-weight: 800; margin: 1rem 0 0.75rem;">ThinkClear</h3>
-            <p style="color: rgba(255, 255, 255, 0.6); margin-bottom: 1.5rem; line-height: 1.6;">Cognitive enhancement for better decisions. Structured thinking frameworks, bias detection, and clarity prompts.</p>
-            <div style="display: flex; gap: 0.5rem;">
-              <a href="https://thinkclear.vercel.app/" target="_blank" style="color: #a5b4fc; font-weight: 600; text-decoration: none; font-size: 0.9375rem;">Visit Site →</a>
+        <a href="https://thinkclear.vercel.app/" target="_blank" class="project-card">
+          <div class="project-preview">
+            <img src="images/thinkclear.png" alt="ThinkClear Demo">
+          </div>
+          <div class="project-content">
+            <div class="project-info">
+              <span class="tag">Mental Tools</span>
+              <h3 style="font-size: 1.75rem; font-weight: 800; margin: 1rem 0 0.75rem; letter-spacing: -0.02em;">ThinkClear</h3>
+              <p style="color: rgba(0, 0, 0, 0.6); margin-bottom: 1rem; line-height: 1.6;">
+                Cognitive enhancement for better decisions. Structured thinking frameworks and bias detection.
+              </p>
+              <div style="display: flex; flex-wrap: wrap; gap: 0.5rem;">
+                <span class="tech-badge">AI</span>
+                <span class="tech-badge">Decision Framework</span>
+              </div>
             </div>
+            <span class="project-cta">Launch Project</span>
           </div>
-        </div>
-
-        <!-- AIQ Beta -->
-        <div class="span-4">
-          <div class="card" style="padding: 2rem; height: 100%;">
-            <span class="tag">Assessment</span>
-            <h3 style="font-size: 1.5rem; font-weight: 800; margin: 1rem 0 0.75rem;">AIQ Beta</h3>
-            <p style="color: rgba(255, 255, 255, 0.6); margin-bottom: 1.5rem; line-height: 1.6;">Measure and improve AI proficiency with custom learning paths.</p>
-            <a href="https://aiq-beta.vercel.app/" target="_blank" style="color: #a5b4fc; font-weight: 600; text-decoration: none; font-size: 0.9375rem;">Visit Site →</a>
-          </div>
-        </div>
-      </div>  
+        </a>
+      </div>
+    </div>
   </section>
 
   <!-- Philosophy -->
-  <section style="padding: 6rem 0; background: rgba(99, 102, 241, 0.03); border-top: 1px solid rgba(255, 255, 255, 0.06); border-bottom: 1px solid rgba(255, 255, 255, 0.06);">
+  <section style="padding: 3rem 0; background: rgba(0, 0, 0, 0.02); border-top: 1px solid rgba(0, 0, 0, 0.05); border-bottom: 1px solid rgba(0, 0, 0, 0.05);">
     <div class="container">
       <div style="max-width: 800px; margin: 0 auto; text-align: center;">
-        <h2 style="font-size: 2.5rem; font-weight: 900; margin-bottom: 1.5rem; letter-spacing: -0.02em;">Build Philosophy</h2>
-        <p style="font-size: 1.5rem; color: rgba(255, 255, 255, 0.8); line-height: 1.6; font-style: italic; font-weight: 300;">
+        <h2 style="font-size: 2rem; font-weight: 900; margin-bottom: 1rem; letter-spacing: -0.02em;">Build Philosophy</h2>
+        <p style="font-size: 1.5rem; color: rgba(0, 0, 0, 0.8); line-height: 1.6; font-weight: 300; font-style: italic;">
           "I steer AI to behave exactly how I need."
         </p>
       </div>
     </div>
   </section>
 
-  <!-- Custom GPTs -->
-  <section id="gpts" style="padding: 6rem 0;">
-    <div class="container">
-      <div style="margin-bottom: 3rem;">
-        <span class="tag" style="margin-bottom: 1rem;">Custom GPTs</span>
-        <h2 style="font-size: 3rem; font-weight: 900; margin-bottom: 1rem; letter-spacing: -0.02em;">Custom GPTs</h2>
-        <p style="font-size: 1.125rem; color: rgba(255, 255, 255, 0.6); max-width: 600px;">Real tools for journalism, business, and automation. Filter by category or search.</p>
-      </div>
-
-      <!-- Filters -->
-      <div style="display: flex; justify-content: space-between; align-items: center; flex-wrap: wrap; gap: 1rem; margin-bottom: 2rem; padding-bottom: 2rem; border-bottom: 1px solid rgba(255, 255, 255, 0.06);">
-        <div style="display: flex; flex-wrap: wrap; gap: 0.5rem;" id="gptChips">
-          <button class="filter-chip active" data-chip="all">All</button>
-          <button class="filter-chip" data-chip="policy">Policy</button>
-          <button class="filter-chip" data-chip="broadcast">Broadcast</button>
-          <button class="filter-chip" data-chip="docs">Docs</button>
-          <button class="filter-chip" data-chip="pr">PR</button>
-          <button class="filter-chip" data-chip="transcripts">Transcripts</button>
-          <button class="filter-chip" data-chip="vo/sot">VO/SOT</button>
-          <button class="filter-chip" data-chip="seo">SEO</button>
-          <button class="filter-chip" data-chip="threads">Threads</button>
-          <button class="filter-chip" data-chip="data">Data</button>
-        </div>
-        <div style="position: relative;">
-          <svg style="position: absolute; left: 1rem; top: 50%; transform: translateY(-50%); width: 1.125rem; height: 1.125rem; color: rgba(255, 255, 255, 0.4);" xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke="currentColor"><circle cx="11" cy="11" r="8"/><path d="m21 21-4.35-4.35"/></svg>
-          <input type="search" id="gptSearch" class="search-input" placeholder="Search GPTs...">
-        </div>
-      </div>
-
-      <div style="font-size: 0.875rem; color: rgba(255, 255, 255, 0.5); margin-bottom: 1.5rem;" id="gptCount"></div>
-
-      <div class="feature-grid">
-        <!-- Bill Explainer -->
-        <div class="gpt-card">
-          <h4 style="font-size: 1.25rem; font-weight: 700; margin-bottom: 0.75rem;">Bill Explainer</h4>
-          <p style="color: rgba(255, 255, 255, 0.6); margin-bottom: 1rem; line-height: 1.6;">Turns legalese into plain English with inline citations and section refs.</p>
-          <div style="display: flex; flex-wrap: wrap; gap: 0.5rem; margin-bottom: 1rem;">
-            <span class="tag">Policy</span>
-            <span class="tag">Citations</span>
-          </div>
-          <a href="#" style="color: #a5b4fc; font-weight: 600; text-decoration: none; font-size: 0.9375rem;">Open GPT →</a>
-        </div>
-
-        <!-- Script Converter -->
-        <div class="gpt-card">
-          <h4 style="font-size: 1.25rem; font-weight: 700; margin-bottom: 0.75rem;">Script Converter</h4>
-          <p style="color: rgba(255, 255, 255, 0.6); margin-bottom: 1rem; line-height: 1.6;">TV ↔ web ↔ VO/SOT ↔ radio. Preserves facts and timing cues.</p>
-          <div style="display: flex; flex-wrap: wrap; gap: 0.5rem; margin-bottom: 1rem;">
-            <span class="tag">Broadcast</span>
-            <span class="tag">Cross-format</span>
-          </div>
-          <a href="#" style="color: #a5b4fc; font-weight: 600; text-decoration: none; font-size: 0.9375rem;">Open GPT →</a>
-        </div>
-
-        <!-- Summary Suit -->
-        <div class="gpt-card">
-          <h4 style="font-size: 1.25rem; font-weight: 700; margin-bottom: 0.75rem;">Summary Suit</h4>
-          <p style="color: rgba(255, 255, 255, 0.6); margin-bottom: 1rem; line-height: 1.6;">Uploads → bullet summaries with inline source lines and paragraph numbers.</p>
-          <div style="display: flex; flex-wrap: wrap; gap: 0.5rem; margin-bottom: 1rem;">
-            <span class="tag">Docs</span>
-            <span class="tag">Citations</span>
-          </div>
-          <a href="#" style="color: #a5b4fc; font-weight: 600; text-decoration: none; font-size: 0.9375rem;">Open GPT →</a>
-        </div>
-
-        <!-- News Focus -->
-        <div class="gpt-card">
-          <h4 style="font-size: 1.25rem; font-weight: 700; margin-bottom: 0.75rem;">News Focus</h4>
-          <p style="color: rgba(255, 255, 255, 0.6); margin-bottom: 1rem; line-height: 1.6;">Angle finder: sharp headlines + 3 angles + risk flags for newsrooms.</p>
-          <div style="display: flex; flex-wrap: wrap; gap: 0.5rem; margin-bottom: 1rem;">
-            <span class="tag">Broadcast</span>
-            <span class="tag">Headlines</span>
-          </div>
-          <a href="#" style="color: #a5b4fc; font-weight: 600; text-decoration: none; font-size: 0.9375rem;">Open GPT →</a>
-        </div>
-
-        <!-- Press Release Wizard -->
-        <div class="gpt-card">
-          <h4 style="font-size: 1.25rem; font-weight: 700; margin-bottom: 0.75rem;">Press Release Wizard</h4>
-          <p style="color: rgba(255, 255, 255, 0.6); margin-bottom: 1rem; line-height: 1.6;">AP-style releases with quotes and embargo options. Ready to send.</p>
-          <div style="display: flex; flex-wrap: wrap; gap: 0.5rem; margin-bottom: 1rem;">
-            <span class="tag">PR</span>
-            <span class="tag">AP Style</span>
-          </div>
-          <a href="#" style="color: #a5b4fc; font-weight: 600; text-decoration: none; font-size: 0.9375rem;">Open GPT →</a>
-        </div>
-
-        <!-- Interview Analyzer -->
-        <div class="gpt-card">
-          <h4 style="font-size: 1.25rem; font-weight: 700; margin-bottom: 0.75rem;">Interview Analyzer</h4>
-          <p style="color: rgba(255, 255, 255, 0.6); margin-bottom: 1rem; line-height: 1.6;">Extracts soundbites, flags contradictions, suggests follow-ups.</p>
-          <div style="display: flex; flex-wrap: wrap; gap: 0.5rem; margin-bottom: 1rem;">
-            <span class="tag">Transcripts</span>
-            <span class="tag">Soundbites</span>
-          </div>
-          <a href="#" style="color: #a5b4fc; font-weight: 600; text-decoration: none; font-size: 0.9375rem;">Open GPT →</a>
-        </div>
-
-        <!-- VOSOT Generator -->
-        <div class="gpt-card">
-          <h4 style="font-size: 1.25rem; font-weight: 700; margin-bottom: 0.75rem;">VOSOT Generator</h4>
-          <p style="color: rgba(255, 255, 255, 0.6); margin-bottom: 1rem; line-height: 1.6;">30-45s VO/SOT scripts with timestamps and lower-thirds suggestions.</p>
-          <div style="display: flex; flex-wrap: wrap; gap: 0.5rem; margin-bottom: 1rem;">
-            <span class="tag">VO/SOT</span>
-            <span class="tag">Timing</span>
-          </div>
-          <a href="#" style="color: #a5b4fc; font-weight: 600; text-decoration: none; font-size: 0.9375rem;">Open GPT →</a>
-        </div>
-
-        <!-- Headline Maker -->
-        <div class="gpt-card">
-          <h4 style="font-size: 1.25rem; font-weight: 700; margin-bottom: 0.75rem;">Headline Maker</h4>
-          <p style="color: rgba(255, 255, 255, 0.6); margin-bottom: 1rem; line-height: 1.6;">5 headline styles with SEO variants and social hooks. Punchy, not clickbait.</p>
-          <div style="display: flex; flex-wrap: wrap; gap: 0.5rem; margin-bottom: 1rem;">
-            <span class="tag">SEO</span>
-            <span class="tag">Headlines</span>
-          </div>
-          <a href="#" style="color: #a5b4fc; font-weight: 600; text-decoration: none; font-size: 0.9375rem;">Open GPT →</a>
-        </div>
-
-        <!-- Trend Threader -->
-        <div class="gpt-card">
-          <h4 style="font-size: 1.25rem; font-weight: 700; margin-bottom: 0.75rem;">Trend Threader</h4>
-          <p style="color: rgba(255, 255, 255, 0.6); margin-bottom: 1rem; line-height: 1.6;">Scans coverage and produces clean social threads with receipts.</p>
-          <div style="display: flex; flex-wrap: wrap; gap: 0.5rem; margin-bottom: 1rem;">
-            <span class="tag">Threads</span>
-            <span class="tag">Social</span>
-          </div>
-          <a href="#" style="color: #a5b4fc; font-weight: 600; text-decoration: none; font-size: 0.9375rem;">Open GPT →</a>
-        </div>
-
-        <!-- QuickRead -->
-        <div class="gpt-card">
-          <h4 style="font-size: 1.25rem; font-weight: 700; margin-bottom: 0.75rem;">QuickRead</h4>
-          <p style="color: rgba(255, 255, 255, 0.6); margin-bottom: 1rem; line-height: 1.6;">Turns long reads into smart briefs with key lines pulled verbatim.</p>
-          <div style="display: flex; flex-wrap: wrap; gap: 0.5rem; margin-bottom: 1rem;">
-            <span class="tag">Docs</span>
-            <span class="tag">Briefs</span>
-          </div>
-          <a href="#" style="color: #a5b4fc; font-weight: 600; text-decoration: none; font-size: 0.9375rem;">Open GPT →</a>
-        </div>
-
-        <!-- Data Story Finder -->
-        <div class="gpt-card">
-          <h4 style="font-size: 1.25rem; font-weight: 700; margin-bottom: 0.75rem;">Data Story Finder</h4>
-          <p style="color: rgba(255, 255, 255, 0.6); margin-bottom: 1rem; line-height: 1.6;">Upload CSVs, get story angles with outliers, trends, and viz suggestions.</p>
-          <div style="display: flex; flex-wrap: wrap; gap: 0.5rem; margin-bottom: 1rem;">
-            <span class="tag">Data</span>
-            <span class="tag">Analysis</span>
-          </div>
-          <a href="#" style="color: #a5b4fc; font-weight: 600; text-decoration: none; font-size: 0.9375rem;">Open GPT →</a>
-        </div>
-
-        <!-- Social Caption Pro -->
-        <div class="gpt-card">
-          <h4 style="font-size: 1.25rem; font-weight: 700; margin-bottom: 0.75rem;">Social Caption Pro</h4>
-          <p style="color: rgba(255, 255, 255, 0.6); margin-bottom: 1rem; line-height: 1.6;">Platform-specific captions (X, IG, LinkedIn, TikTok) with hashtag strategies.</p>
-          <div style="display: flex; flex-wrap: wrap; gap: 0.5rem; margin-bottom: 1rem;">
-            <span class="tag">Social</span>
-            <span class="tag">SEO</span>
-          </div>
-          <a href="#" style="color: #a5b4fc; font-weight: 600; text-decoration: none; font-size: 0.9375rem;">Open GPT →</a>
-        </div>
-      </div>
-    </div>
-  </section>
-
   <!-- Contact -->
-  <section id="contact" style="padding: 6rem 0; background: rgba(99, 102, 241, 0.03); border-top: 1px solid rgba(255, 255, 255, 0.06);">
+  <section id="contact" style="padding: 4rem 0;">
     <div class="container">
       <div style="max-width: 700px; margin: 0 auto; text-align: center;">
-        <h2 style="font-size: 3rem; font-weight: 900; margin-bottom: 1rem; letter-spacing: -0.02em;">Let's Build Something</h2>
-        <p style="font-size: 1.25rem; color: rgba(255, 255, 255, 0.7); margin-bottom: 3rem; line-height: 1.6;">Need a custom GPT, landing page, or automation workflow? I'm always open to collaboration.</p>
+        <h2 class="section-title">Let's Build</h2>
+        <p style="font-size: 1.125rem; color: rgba(0, 0, 0, 0.6); margin-bottom: 2rem; line-height: 1.6;">
+          Need custom AI tools, landing pages, or automation? Let's collaborate.
+        </p>
         <div style="display: flex; gap: 1rem; justify-content: center; flex-wrap: wrap;">
+          <a href="https://jimspiewak.substack.com/" target="_blank" class="btn-primary">Read on Substack</a>
+          <a href="mailto:jpsthesecond@gmail.com" class="btn-secondary">Get in Touch</a>
         </div>
       </div>
     </div>
   </section>
 
   <!-- Footer -->
-  <footer style="padding: 3rem 0; border-top: 1px solid rgba(255, 255, 255, 0.06);">
+  <footer style="padding: 2rem 0; border-top: 1px solid rgba(0, 0, 0, 0.08);">
     <div class="container" style="text-align: center;">
-      <p style="color: rgba(255, 255, 255, 0.4); font-size: 0.9375rem;">© 2025 Jim Spiewak • Jim AI Guy • Built with AI</p>
+      <p style="color: rgba(0, 0, 0, 0.4); font-size: 0.875rem;">
+        2025 Jim Spiewak — AI Product Builder
+      </p>
     </div>
   </footer>
-
 </body>
 </html>

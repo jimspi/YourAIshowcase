@@ -63,6 +63,7 @@
       width: 100%;
       height: 100%;
       object-fit: cover;
+      object-position: top;
     }
 
     @keyframes scroll {
@@ -76,10 +77,7 @@
 
     /* Gradient Text */
     .gradient-text {
-      background: linear-gradient(135deg, #1a1a1a 0%, #6366f1 50%, #8b5cf6 100%);
-      -webkit-background-clip: text;
-      -webkit-text-fill-color: transparent;
-      background-clip: text;
+      color: #1a1a1a;
     }
 
     /* Cards */
@@ -93,14 +91,14 @@
 
     .card:hover {
       background: #f5f5f5;
-      border-color: rgba(139, 92, 246, 0.4);
+      border-color: rgba(0, 0, 0, 0.2);
       transform: translateY(-4px);
       box-shadow: 0 10px 30px rgba(0, 0, 0, 0.08);
     }
 
     /* Buttons */
     .btn-primary {
-      background: linear-gradient(135deg, #8b5cf6 0%, #6366f1 100%);
+      background: #1a1a1a;
       padding: 0.875rem 2rem;
       border-radius: 0.5rem;
       font-weight: 600;
@@ -113,7 +111,8 @@
 
     .btn-primary:hover {
       transform: translateY(-2px);
-      box-shadow: 0 10px 30px rgba(139, 92, 246, 0.3);
+      box-shadow: 0 10px 30px rgba(0, 0, 0, 0.2);
+      background: #333;
     }
 
     .btn-secondary {
@@ -380,7 +379,7 @@
                 <a href="https://thinkclear.vercel.app/" target="_blank" class="btn-primary">Launch ThinkClear</a>
               </div>
               <div>
-                <div style="padding: 1.5rem; background: rgba(139, 92, 246, 0.05); border: 1px solid rgba(139, 92, 246, 0.2); border-radius: 0.75rem;">
+                <div style="padding: 1.5rem; background: rgba(0, 0, 0, 0.03); border: 1px solid rgba(0, 0, 0, 0.1); border-radius: 0.75rem;">
                   <p style="font-size: 0.875rem; color: rgba(0, 0, 0, 0.5); margin-bottom: 0.75rem;">Features:</p>
                   <ul style="list-style: none; color: rgba(0, 0, 0, 0.8); font-size: 0.875rem; line-height: 1.8;">
                     <li>Complex decisions</li>
@@ -398,7 +397,7 @@
   </section>
 
   <!-- Philosophy -->
-  <section style="padding: 3rem 0; background: rgba(139, 92, 246, 0.02); border-top: 1px solid rgba(0, 0, 0, 0.05); border-bottom: 1px solid rgba(0, 0, 0, 0.05);">
+  <section style="padding: 3rem 0; background: rgba(0, 0, 0, 0.02); border-top: 1px solid rgba(0, 0, 0, 0.05); border-bottom: 1px solid rgba(0, 0, 0, 0.05);">
     <div class="container">
       <div style="max-width: 800px; margin: 0 auto; text-align: center;">
         <h2 style="font-size: 2rem; font-weight: 900; margin-bottom: 1rem; letter-spacing: -0.02em;">Build Philosophy</h2>
@@ -419,7 +418,7 @@
         </p>
         <div style="display: flex; gap: 1rem; justify-content: center; flex-wrap: wrap;">
           <a href="https://jimspiewak.substack.com/" target="_blank" class="btn-primary">Read on Substack</a>
-          <a href="mailto:contact@jimspiewak.com" class="btn-secondary">Get in Touch</a>
+          <a href="mailto:jpsthesecond@gmail.com" class="btn-secondary">Get in Touch</a>
         </div>
       </div>
     </div>

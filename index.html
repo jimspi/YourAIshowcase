@@ -200,6 +200,116 @@
       letter-spacing: -0.02em;
       margin-bottom: 1rem;
     }
+
+    /* Project Cards with Animations */
+    .project-card {
+      position: relative;
+      overflow: hidden;
+      background: #fafafa;
+      border: 1px solid rgba(0, 0, 0, 0.08);
+      border-radius: 1rem;
+      transition: all 0.4s ease;
+      height: 100%;
+      display: flex;
+      flex-direction: column;
+    }
+
+    .project-card:hover {
+      transform: translateY(-8px);
+      box-shadow: 0 20px 40px rgba(0, 0, 0, 0.1);
+      border-color: rgba(0, 0, 0, 0.2);
+    }
+
+    .project-preview {
+      position: relative;
+      width: 100%;
+      height: 250px;
+      overflow: hidden;
+      background: #fff;
+      border-bottom: 1px solid rgba(0, 0, 0, 0.08);
+    }
+
+    .project-preview img {
+      width: 100%;
+      height: 100%;
+      object-fit: cover;
+      object-position: top;
+      transition: transform 0.6s ease;
+    }
+
+    .project-card:hover .project-preview img {
+      transform: scale(1.05);
+    }
+
+    .project-content {
+      padding: 2rem;
+      display: flex;
+      flex-direction: column;
+      flex-grow: 1;
+    }
+
+    .project-info {
+      flex-grow: 1;
+    }
+
+    .project-cta {
+      display: inline-flex;
+      align-items: center;
+      gap: 0.5rem;
+      color: #1a1a1a;
+      font-weight: 600;
+      text-decoration: none;
+      font-size: 0.9375rem;
+      transition: gap 0.3s ease;
+      margin-top: 1.5rem;
+    }
+
+    .project-cta:hover {
+      gap: 0.75rem;
+    }
+
+    .project-cta::after {
+      content: '→';
+      transition: transform 0.3s ease;
+    }
+
+    .project-cta:hover::after {
+      transform: translateX(4px);
+    }
+
+    /* Animated background accents */
+    .project-card::before {
+      content: '';
+      position: absolute;
+      top: 0;
+      left: 0;
+      right: 0;
+      height: 3px;
+      background: linear-gradient(90deg, #1a1a1a, #666);
+      transform: scaleX(0);
+      transform-origin: left;
+      transition: transform 0.4s ease;
+    }
+
+    .project-card:hover::before {
+      transform: scaleX(1);
+    }
+
+    .uniform-grid {
+      display: grid;
+      grid-template-columns: repeat(2, 1fr);
+      gap: 2rem;
+    }
+
+    @media (max-width: 968px) {
+      .uniform-grid {
+        grid-template-columns: 1fr;
+      }
+
+      .project-preview {
+        height: 200px;
+      }
+    }
   </style>
 </head>
 <body>
@@ -310,88 +420,92 @@
         </p>
       </div>
 
-      <div class="project-grid">
+      <div class="uniform-grid">
         <!-- Vault -->
-        <div class="span-8">
-          <div class="card" style="padding: 2.5rem;">
-            <span class="tag">Flagship</span>
-            <h3 style="font-size: 2rem; font-weight: 800; margin: 1rem 0 0.75rem; letter-spacing: -0.02em;">Vault</h3>
-            <p style="font-size: 1rem; color: rgba(0, 0, 0, 0.6); margin-bottom: 1.5rem; line-height: 1.6;">
-              Secure document management and AI-powered organization. Built for teams that need reliability and speed.
-            </p>
-            <div style="display: flex; flex-wrap: wrap; gap: 0.5rem; margin-bottom: 1.5rem;">
-              <span class="tech-badge">Next.js</span>
-              <span class="tech-badge">AI</span>
-              <span class="tech-badge">Encryption</span>
-              <span class="tech-badge">Real-time</span>
-            </div>
-            <a href="https://vault-mu-ten.vercel.app/" target="_blank" class="btn-primary">Launch Vault</a>
+        <a href="https://vault-mu-ten.vercel.app/" target="_blank" class="project-card">
+          <div class="project-preview">
+            <img src="images/vault.png" alt="Vault Demo">
           </div>
-        </div>
+          <div class="project-content">
+            <div class="project-info">
+              <span class="tag">Flagship</span>
+              <h3 style="font-size: 1.75rem; font-weight: 800; margin: 1rem 0 0.75rem; letter-spacing: -0.02em;">Vault</h3>
+              <p style="color: rgba(0, 0, 0, 0.6); margin-bottom: 1rem; line-height: 1.6;">
+                Secure document management and AI-powered organization. Built for teams that need reliability and speed.
+              </p>
+              <div style="display: flex; flex-wrap: wrap; gap: 0.5rem;">
+                <span class="tech-badge">Next.js</span>
+                <span class="tech-badge">AI</span>
+                <span class="tech-badge">Encryption</span>
+              </div>
+            </div>
+            <span class="project-cta">Launch Project</span>
+          </div>
+        </a>
 
         <!-- NewsFlow -->
-        <div class="span-4">
-          <div class="card" style="padding: 2rem;">
-            <span class="tag">News Tech</span>
-            <h3 style="font-size: 1.5rem; font-weight: 800; margin: 1rem 0 0.75rem;">NewsFlow</h3>
-            <p style="color: rgba(0, 0, 0, 0.6); margin-bottom: 1.5rem; line-height: 1.6; font-size: 0.9375rem;">
-              Real-time news aggregation with AI-powered trend detection.
-            </p>
-            <div style="display: flex; flex-wrap: wrap; gap: 0.5rem; margin-bottom: 1.5rem;">
-              <span class="tech-badge">API</span>
-              <span class="tech-badge">AI Analysis</span>
-            </div>
-            <a href="https://news-flow-six.vercel.app/" target="_blank" style="color: #1a1a1a; font-weight: 600; text-decoration: none; font-size: 0.9375rem;">Visit Site →</a>
+        <a href="https://news-flow-six.vercel.app/" target="_blank" class="project-card">
+          <div class="project-preview">
+            <img src="images/newsflow.png" alt="NewsFlow Demo">
           </div>
-        </div>
+          <div class="project-content">
+            <div class="project-info">
+              <span class="tag">News Tech</span>
+              <h3 style="font-size: 1.75rem; font-weight: 800; margin: 1rem 0 0.75rem; letter-spacing: -0.02em;">NewsFlow</h3>
+              <p style="color: rgba(0, 0, 0, 0.6); margin-bottom: 1rem; line-height: 1.6;">
+                Real-time news aggregation with AI-powered trend detection and intelligent content curation.
+              </p>
+              <div style="display: flex; flex-wrap: wrap; gap: 0.5rem;">
+                <span class="tech-badge">API</span>
+                <span class="tech-badge">AI Analysis</span>
+                <span class="tech-badge">Real-time</span>
+              </div>
+            </div>
+            <span class="project-cta">Launch Project</span>
+          </div>
+        </a>
 
         <!-- TeamMessage -->
-        <div class="span-6">
-          <div class="card" style="padding: 2rem;">
-            <span class="tag">Collaboration</span>
-            <h3 style="font-size: 1.5rem; font-weight: 800; margin: 1rem 0 0.75rem;">TeamMessage</h3>
-            <p style="color: rgba(0, 0, 0, 0.6); margin-bottom: 1.5rem; line-height: 1.6; font-size: 0.9375rem;">
-              Smart team communication with AI summaries and priority filtering.
-            </p>
-            <div style="display: flex; flex-wrap: wrap; gap: 0.5rem; margin-bottom: 1.5rem;">
-              <span class="tech-badge">Real-time</span>
-              <span class="tech-badge">AI Summaries</span>
-            </div>
-            <a href="https://team-message.vercel.app/" target="_blank" style="color: #1a1a1a; font-weight: 600; text-decoration: none; font-size: 0.9375rem;">Visit Site →</a>
+        <a href="https://team-message.vercel.app/" target="_blank" class="project-card">
+          <div class="project-preview">
+            <img src="images/teammessage.png" alt="TeamMessage Demo">
           </div>
-        </div>
+          <div class="project-content">
+            <div class="project-info">
+              <span class="tag">Collaboration</span>
+              <h3 style="font-size: 1.75rem; font-weight: 800; margin: 1rem 0 0.75rem; letter-spacing: -0.02em;">TeamMessage</h3>
+              <p style="color: rgba(0, 0, 0, 0.6); margin-bottom: 1rem; line-height: 1.6;">
+                Smart team communication with AI summaries and priority filtering for streamlined collaboration.
+              </p>
+              <div style="display: flex; flex-wrap: wrap; gap: 0.5rem;">
+                <span class="tech-badge">Real-time</span>
+                <span class="tech-badge">AI Summaries</span>
+              </div>
+            </div>
+            <span class="project-cta">Launch Project</span>
+          </div>
+        </a>
 
         <!-- ThinkClear -->
-        <div class="span-12">
-          <div class="card" style="padding: 2.5rem;">
-            <div style="display: grid; grid-template-columns: 2fr 1fr; gap: 2rem; align-items: center;">
-              <div>
-                <span class="tag">Mental Tools</span>
-                <h3 style="font-size: 2rem; font-weight: 800; margin: 1rem 0 0.75rem;">ThinkClear</h3>
-                <p style="color: rgba(0, 0, 0, 0.6); margin-bottom: 1.5rem; line-height: 1.6; font-size: 1rem;">
-                  Cognitive enhancement for better decisions. Structured thinking frameworks, bias detection, and clarity prompts.
-                </p>
-                <div style="display: flex; flex-wrap: wrap; gap: 0.5rem; margin-bottom: 1.5rem;">
-                  <span class="tech-badge">AI</span>
-                  <span class="tech-badge">Decision Framework</span>
-                  <span class="tech-badge">Bias Detection</span>
-                </div>
-                <a href="https://thinkclear.vercel.app/" target="_blank" class="btn-primary">Launch ThinkClear</a>
-              </div>
-              <div>
-                <div style="padding: 1.5rem; background: rgba(0, 0, 0, 0.03); border: 1px solid rgba(0, 0, 0, 0.1); border-radius: 0.75rem;">
-                  <p style="font-size: 0.875rem; color: rgba(0, 0, 0, 0.5); margin-bottom: 0.75rem;">Features:</p>
-                  <ul style="list-style: none; color: rgba(0, 0, 0, 0.8); font-size: 0.875rem; line-height: 1.8;">
-                    <li>Complex decisions</li>
-                    <li>Cognitive biases</li>
-                    <li>Strategic planning</li>
-                    <li>Problem decomposition</li>
-                  </ul>
-                </div>
+        <a href="https://thinkclear.vercel.app/" target="_blank" class="project-card">
+          <div class="project-preview">
+            <img src="images/thinkclear.png" alt="ThinkClear Demo">
+          </div>
+          <div class="project-content">
+            <div class="project-info">
+              <span class="tag">Mental Tools</span>
+              <h3 style="font-size: 1.75rem; font-weight: 800; margin: 1rem 0 0.75rem; letter-spacing: -0.02em;">ThinkClear</h3>
+              <p style="color: rgba(0, 0, 0, 0.6); margin-bottom: 1rem; line-height: 1.6;">
+                Cognitive enhancement for better decisions. Structured thinking frameworks and bias detection.
+              </p>
+              <div style="display: flex; flex-wrap: wrap; gap: 0.5rem;">
+                <span class="tech-badge">AI</span>
+                <span class="tech-badge">Decision Framework</span>
               </div>
             </div>
+            <span class="project-cta">Launch Project</span>
           </div>
-        </div>
+        </a>
       </div>
     </div>
   </section>
